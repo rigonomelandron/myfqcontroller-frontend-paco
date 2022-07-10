@@ -1,0 +1,82 @@
+<app-menu></app-menu>
+<div class="texto-pequeño">
+  <h1>MyFQController</h1>
+</div>
+<main class="row container" >
+
+    <div class="col"></div>
+    <div class="col-lg-8 col-md-12">
+        <p-card >
+            <div class="row">
+                <div class="col-2">
+                    <p-avatar  styleClass="mr-2" size="xlarge" shape="circle"> <img *ngIf="usuario?.foto" src="http://localhost:8080/api/v1/uploads/img/{{usuario.foto}}" alt="{{usuario.foto}}"
+                      class="img-thumbnail rounded-circle"></p-avatar>
+
+                    <p style="font-size:12px; margin-top: 0.2rem;" *ngIf="this.paciente"> {{this.paciente.mutacion1 ? this.paciente.mutacion1 : "-"}} / {{this.paciente.mutacion2 ? this.paciente.mutacion2 : "-"}}  </p>
+                </div>
+                <div class="col-10">
+                    <h4 class="text-start" *ngIf="this.paciente">{{this.paciente.nombre}}</h4>
+                    <h6 class="text-start" *ngIf="doctor">{{doctor}}</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+
+                    <p style="font-size:15px; margin-left: 5rem;font-weight:400" *ngIf="this.paciente"><span style="font-weight: 600; " >Nombre de Usuario: </span>{{this.paciente.idUsuario}}</p>
+                    <p style="font-size:15px; margin-left: 5rem;font-weight:400" *ngIf="this.paciente"><span style="font-weight: 600;">DNI: </span>{{this.paciente.dni}}</p>
+                    <p style="font-size:15px; margin-left: 5rem;font-weight:400" *ngIf="this.paciente"><span><span style="font-weight: 600;">Género: </span> {{this.paciente.genero}}</span><span style="margin-left:10px;"><span style="font-weight: 600;">Peso: </span>{{this.paciente.peso}}</span><span style="margin-left:10px;"><span style="font-weight: 600;">Altura: </span>{{this.paciente.altura}}</span></p>
+                    <p style="font-size:15px; margin-left: 5rem;font-weight:400" *ngIf="this.paciente"><span style="font-weight: 600;">Email: </span>{{this.paciente.email}}</p>
+                    <div *ngIf="!doctor">
+                      <p-dropdown [options]="medicos" [(ngModel)]="medico" appendTo="body" optionLabel="nombre" class="mx-2" (onChange)="obtenerEquipo(medico)">
+                      </p-dropdown>
+
+                      </div>
+
+                    <div class="d-flex align-items-center  ">
+                      <button class="boton" style="margin-left: 5rem;" styleClass="p-button-outlined" type="button" pButton pRipple label="Perfil usuario" (click)="abrirDialogo()"></button>
+                      <button class="boton-delete " style="margin-left: 1rem;" styleClass="p-button-outlined-danger" type="button" pButton pRipple label="Dar de baja usuario" (click)="confirmarEliminar()"></button>
+                    </div>
+
+                </div>
+
+            </div>
+        </p-card>
+    </div>
+    <div class="col"></div>
+    <p-dialog [visible]="this.mostrarFormulario" [closable]="false" [maximizable]="true" header="Registro"
+      [style]="{width: '30vw', height:'auto'}">
+      <ng-template pTemplate="body">
+        <form autocomplete="off" (ngSubmit)="addPaciente()" [formGroup]="formPaciente">
+          <div class="d-grid gap-3">
+              <input pInputText type="text" formControlName="nombre" placeholder="nombre" />
+              <input pInputText type="email" formControlName="email" placeholder="Email" />
+            <div class="field col-12 md:col-4">
+              <p-calendar inputId="basic" formControlName="fechaNacimiento" appendTo="body" placeholder="Fecha Nacimiento"></p-calendar>
+            </div>
+            <p-selectButton [options]="generoOptions" formControlName="genero"  optionLabel="nombre"
+              optionValue="value"></p-selectButton>
+            <input pInputText type="text" formControlName="peso" placeholder="Peso" />
+            <input pInputText type="text" formControlName="altura" placeholder="Altura" />
+            <div>
+              <p-dropdown [options]="mutacion1"  formControlName="mutacion1" appendTo="body"  optionLabel="nombre" class="mx-2"></p-dropdown>
+              <p-dropdown [options]="mutacion2" formControlName="mutacion2" appendTo="body" optionLabel="nombre"></p-dropdown>
+            </div>
+            <div d-flex>
+              <div class="input-group">
+                <label class="input-group-text bg-warning" for="inputFoto">Foto</label>
+                <input (change)="seleccionarFoto($event)" type="file" class="form-control" id="inputFoto" aria-describedby="inputGroupFileAddon04"
+                  aria-label="Upload">
+                <button (click)="subirFoto()" [disabled]="!fotoSeleccionada"  class="btn btn-outline-secondary bg-info text-dark" type="button" id="inputGroupFileAddon04">Subir</button>
+              </div>
+              <button pButton type="submit" label="Añadir" pRipple class="boton mx-3"></button>
+              <button pButton type="button" label="Cerrar" aria-label="Close" pRipple class="p-button-text" (click)="cerrarDialogo()"></button>
+            </div>
+          </div>
+        </form>
+      </ng-template>
+
+
+    </p-dialog>
+
+</main>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

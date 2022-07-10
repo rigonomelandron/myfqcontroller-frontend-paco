@@ -1,0 +1,51 @@
+
+<div class="texto-principal col-12">
+  <span>MyFQController</span>
+  </div>
+<div class="row">
+  
+  <div class="col-12">
+    <p-dialog
+      [visible]="true"
+      [closable]="false"
+      [maximizable]="true"
+      class="p-fluid"
+      header="Iniciar Sesión"
+    >
+      <ng-template pTemplate="body" class="container">
+        <div class="d-grid gap-3">
+          <div class="p-input-icon-left">
+            <i class="pi pi-user"></i>
+            <input
+              pInputText
+              type="text"
+              placeholder="Usuario"
+              [(ngModel)]="nombreUsuario"
+            />
+          </div>
+          <div class="p-input-icon-left">
+            <i class="pi pi-key"></i>
+            <input
+              pPassword
+              type="password"
+              placeholder="Contraseña"
+              
+              [(ngModel)]="password"
+            />
+          </div>
+          <p>¿No tienes cuenta? <a routerLink="/auth/registro">Crea una</a></p>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="footer">
+        <button
+          pButton
+          pRipple
+          class="p-button-text"
+
+          (click)="onLogin()"
+          label="Login"
+        ></button>
+      </ng-template>
+    </p-dialog>
+  </div>
+</div>

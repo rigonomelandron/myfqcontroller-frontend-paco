@@ -1,0 +1,51 @@
+
+<p-card header="Usuarios" subheader="Tabla de usuarios">
+  <p-progressBar mode="indeterminate" [style]="{'height': '0.5rem'}"></p-progressBar>
+  <div *ngIf="">
+    <p-toolbar>
+      <ng-template pTemplate="left">
+        <p-button label="Nuevo Usuario" class="p-button-success" icon="pi pi-plus" (click)="mostrarDialogo()"
+          iconPos="left"></p-button>
+      </ng-template>
+      <ng-template pTemplate="right">
+        <p-button label="Export" class="p-button-success" icon="pi pi-plus" (click)="cerrarDialogo()" iconPos="left">
+        </p-button>
+      </ng-template>
+    </p-toolbar>
+
+    <p-table styleClass="p-datatable-striped" responsiveLayout="scroll" [paginator]="true"
+      [rows]="10" [showCurrentPageReport]="true"
+      currentPageReportTemplate="Mostrando {first} al {last} de {totalRecords}" [rowsPerPageOptions]="[10,25,50]">
+      <!--sortMode="multiple" (para opción de multiple ordenación-->
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="id">Id<p-sortIcon field="id"></p-sortIcon>
+          </th>
+          <th pSortableColumn="nombre">Nombre<p-sortIcon field="nombre"></p-sortIcon>
+          </th>
+          <th pSortableColumn="correo">Email<p-sortIcon field="correo"></p-sortIcon>
+          </th>
+          <th pSortableColumn="rol.rol">Rol<p-sortIcon field="rol.rol"></p-sortIcon>
+          </th>
+          <th>Acciones</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-usuario>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+
+            <button pButton pRipple class="p-button-rounded p-button-danger me-2" icon="pi pi-trash"
+              ></button><!--(click)="confirmarEliminar(usuario, $event)" [loading]="this.procesoBorrando"-->
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="paginatorright">
+        <p-button type="button" icon="pi pi-refresh" styleClass="p-button-text"></p-button><!-- (click)="getUsuarios()"-->
+      </ng-template>
+    </p-table>
+  </div>
+</p-card>

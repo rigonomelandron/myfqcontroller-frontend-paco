@@ -1,0 +1,32 @@
+<div #aqui></div>
+  <div class="d-flex justify-content-center align-items-center ">
+
+    <div class="card overflow-scroll" >
+
+      <h5 class="m-3">Gráfica</h5>
+
+      <div class="field col-12 md:col-4 m-3">
+        <label for="range"><i class="pi pi-calendar-plus " style="font-size: 3rem"></i></label>
+        <p-calendar
+          [(ngModel)]="rangeDates"
+          selectionMode="range"
+          [readonlyInput]="true"
+          inputId="range"
+          pTooltip="Debe escoger dos fechas"
+          tooltipPosition="right"
+          [appendTo]="aqui"
+          class="m-3 border"
+
+        ></p-calendar>
+        <button pButton label="Consultar" (click)="obtenerFechas()" class="m-3"></button>
+      </div>
+      <p-chart
+        type="line"
+        [data]="multiAxisData"
+        [options]="basicOptions"
+
+        height="55vh"
+      ></p-chart>
+    </div>
+  </div>
+

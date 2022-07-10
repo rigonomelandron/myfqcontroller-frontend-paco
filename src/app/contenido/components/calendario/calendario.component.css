@@ -1,0 +1,128 @@
+* {
+  outline: none !important;
+}
+
+.wrapper-calendar {
+  margin: 1rem;
+  padding: 0.5rem;
+  border: solid 1px #eaeaea;
+  box-shadow: 0 0 10px #e4e4e4;
+  background-color: rgba(255, 255, 255, 0.8);
+
+  color:#1d736a;
+  padding: 2rem;
+}
+
+div {
+  text-align: center;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+ol {
+
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin: 0;
+  padding: 0;
+}
+ol .dias {
+  margin: 1px;
+  border: 2px solid #1d736a;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  font-size: 1.5ch;
+  cursor: pointer;
+}
+
+li:hover {
+  font-weight: 600;
+}
+
+h2 {
+  margin-bottom: 4px;
+  padding: 0;
+}
+
+.first-day {
+  grid-column-start: var(--first-day-start, 0);
+}
+
+.day-name {
+  background: #fe9f414a;
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 2px;
+  padding: 4px;
+  text-align: center;
+}
+
+.header-calendar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+}
+
+.header-calendar h1 {
+  width: 100%;
+
+}
+
+.header-calendar button {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+}
+.hide{
+  display: none;
+}
+.marca{
+  background-color: red ;
+  width: 20px;
+  height: 20px;
+}
+.elemento{
+  height: 100%;
+}
+.cabecera{
+  height:20%;
+}
+.cuerpo{
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+li{
+  height: 2.5rem;
+}
+
+.dialogo{
+  background-color: #1d736a;
+}
+#datos{
+  width:80vw;
+
+}
+@media (min-width: 768px) {
+.wrapper-calendar {
+  width: 50vw;
+}
+
+li{
+  height:5rem;
+}
+#datos{
+  width:50vw;
+  height: auto;
+}
+}

@@ -1,0 +1,14 @@
+* {
+    font-size:smaller;
+}
+
+@media (max-width: 1052px){
+    .hide{
+        display: none;
+    }
+}
+@media (min-width: 1052px){
+    .hidePop{
+        display: none;
+        }
+}

@@ -1,0 +1,230 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  background-image: url(assets/images/background1.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100vh;
+  overflow: hidden;
+  font-size: large;
+}
+p, h5, h4, h6{
+  color:#1d736a;
+  font-weight: 600;
+}
+li{
+  color:#1d736a!important;
+  font-weight: 600;
+}
+.bi-arrow-right-square::before{
+  font-size: 3rem;
+}
+.bi-arrow-left-square::before {
+  font-size: 3rem;
+}
+.p-megamenu {
+  background: transparent;
+  border: 0px;
+  border-radius: 0;
+}
+
+.p-menuitem-icon {
+  color: #1d736a !important;
+
+}
+
+.p-menuitem-text {
+  color: #1d736a !important;
+  font-weight: 600 !important;
+}
+
+.p-button-text {
+  color: #1d736a !important;
+}
+
+.boton {
+  border: none;
+  background-color: #fe9f41d3;
+  padding: 10px;
+  font-size: 15px;
+  margin-bottom: 0.5rem;
+}
+
+.boton-delete {
+  border: none;
+  background-color: #fe4141d3;
+  color: #ffffff !important;
+  padding: 10px;
+  font-size: 15px;
+  margin-bottom: 0.5rem;
+}
+
+.p-card {
+  background-color: #ffffffae !important;
+  padding: 0 !important;
+
+
+
+
+}
+.card{
+   width:100% !important;
+}
+.p-listbox {
+  background-color: #3fcfd40f !important;
+}
+
+.p-listbox-item {
+  color: #1d736a !important;
+}
+
+body {
+  background-color: #fe9f410a;
+  width: 100%;
+}
+
+.menu {
+  backdrop-filter: blur(12px);
+}
+
+.p-dialog {
+  width: 100% !important;
+}
+.p-dialog-title{
+  color: #1d736a !important;
+}
+.p-inputtext{
+  border: 2px solid #1d736a;
+}
+.container {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: auto;
+}
+
+.texto-principal {
+  font-family: 'Yellowtail', cursive;
+  font-size: 3rem;
+  color: rgb(9, 117, 190);
+  margin: 2rem;
+  margin-left: 1rem;
+}
+
+.texto-pequeño {
+  font-family: 'Yellowtail', cursive !important;
+  font-size: 3rem !important;
+  color: rgb(9, 117, 190);
+  margin: 3rem !important;
+  display: block;
+
+}
+
+.home-principal {
+  margin: auto;
+}
+
+.p-megamenu-horizontal {
+  padding-left: 5rem;
+}
+
+#logo {
+  position: absolute;
+  left: 1.5rem;
+  top: 0.75rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-position: center;
+
+}
+
+#titulo-menu {
+  font-size: 2.5rem;
+  color: #1d736a;
+  margin-left: 20rem;
+  font-family: 'Yellowtail', cursive;
+  font-weight: 500;
+}
+
+.container-principal {
+  width: 100vw;
+}
+
+.ng-star-inserted i {
+  position: relative;
+  font-size: 0.4rem !important;
+  color:red;
+
+  top: -6px !important;
+}
+.ng-star-inserted .pi-calendar-plus{
+  font-size: 2rem !important;
+  color: black;
+}
+
+.p-component {
+  font-size: 1rem !important;
+}
+.p-chart canvas {
+  width: 100% !important;
+}
+
+@media(min-width:768px) {
+
+  .p-chart canvas {
+    width: 55vw;
+  }
+}
+
+@media (min-width: 768px) {
+  .texto-principal {
+
+    font-size: 6rem;
+    color: rgb(9, 117, 190);
+    margin: 2rem;
+    margin-left: 6rem;
+  }
+
+  .texto-pequeño {
+    display: none;
+  }
+
+  .container {
+    width: 80vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+
+  .p-component {
+    font-size: 1.2rem !important;
+  }
+
+  .p-dialog {
+    width: 35vw !important;
+  }
+
+  .ng-star-inserted i {
+    font-size: 0.8rem !important;
+  }
+
+
+
+}
+
+@media (max-width: 1052px) {
+  .hide {
+    display: none;
+  }
+}
+
+@media (min-width: 1052px) {
+  .hidePop {
+    display: none;
+  }
+}

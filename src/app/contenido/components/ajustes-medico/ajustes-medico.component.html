@@ -1,0 +1,44 @@
+<app-menu-medico></app-menu-medico>
+<main class="row" style="margin: 150px;">
+
+  <div class="col"></div>
+  <div class="col-lg-8 col-md-12">
+    <p-card>
+      <div class="row">
+      </div>
+      <div class="row">
+        <div>
+          <button class="boton mt-2" style="margin-left: 5rem;" styleClass="p-button-outlined" type="button" pButton
+            pRipple label="Perfil usuario" (click)="abrirDialogo()"></button>
+          <button class="boton-delete mt-2" style="margin-left: 1rem;" styleClass="p-button-outlined-danger"
+            type="button" pButton pRipple label="Dar de baja usuario" (click)="confirmarEliminar()"></button>
+
+        </div>
+
+      </div>
+    </p-card>
+
+  </div>
+  <div class="col"></div>
+  <p-dialog [visible]="this.mostrarFormulario" [closable]="false" [maximizable]="true" header="Registro"
+    [style]="{width: '30vw', height:'auto'}">
+    <ng-template pTemplate="body">
+      <form autocomplete="off" (ngSubmit)="addMedico()" [formGroup]="formDoctor">
+        <div class="d-grid gap-3">
+          <input pInputText type="text" formControlName="nombre" placeholder="nombre" />
+          <input pInputText type="email" formControlName="email" placeholder="Email" />          
+          <div d-flex>
+            <button pButton type="submit" label="Añadir" pRipple class="boton mx-3"></button>
+            <button pButton type="button" label="Cerrar" pRipple class="p-button-text"
+              (click)="cerrarDialogo()"></button>
+          </div>
+        </div>
+      </form>
+    </ng-template>
+
+
+  </p-dialog>
+
+</main>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+

@@ -1,0 +1,67 @@
+<div class="texto-principal">
+  <span>MyFQController</span>
+</div>
+
+<p-dialog
+  [visible]="true"
+  [closable]="false"
+  [maximizable]="true"
+  class="p-fluid"
+  header="Registro"
+>
+  <ng-template pTemplate="body">
+    <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="registro()">
+      <div class="d-grid gap-3">
+        <input
+          pInputText
+          type="text"
+          formControlName="usuario"
+          placeholder="Ingrese usuario"
+        />
+        <input
+          pPassword
+          type="password"
+          formControlName="password"
+          placeholder="Ingrese su contraseña"
+        />
+        <p-dropdown
+          formControlName="roles"
+          appendTo="body"
+          id="rol"
+          [options]="roles"
+          optionLabel="rol"
+        ></p-dropdown>
+        <input
+          pInputText
+          type="text"
+          formControlName="nombre"
+          placeholder="Nombre"
+        />
+        <input
+          pInputText
+          type="email"
+          formControlName="email"
+          placeholder="email"
+        />
+        <input
+          pInputText
+          type="text"
+          formControlName="id"
+          [placeholder]="medico ? 'nº Colegiado' : 'Dni'"
+        />
+        <button
+          pButton
+          type="submit"
+          label="Registro"
+        ></button>
+      </div>
+    </form>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <span class="txt1 p-b-17"> ¿ya tienes cuenta? </span>
+
+    <a routerLink="/auth/login" class="txt2"> Ingresa aquí </a>
+
+  </ng-template>
+
+</p-dialog>

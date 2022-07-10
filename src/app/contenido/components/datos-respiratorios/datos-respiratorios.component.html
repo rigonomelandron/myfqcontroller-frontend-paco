@@ -1,0 +1,58 @@
+<div class="mb-5">
+    <app-menu></app-menu>
+</div>
+<div class="texto-pequeño">
+  <h1>MyFQController</h1>
+</div>
+<main class="row  pb-5 container overflow-auto" >
+  <p-card>
+      <header>
+          <h4 style="color:#1d736a !important;">Datos Respiratorios</h4>
+      </header>
+      <ng-template pTemplate="content">
+          <hr>
+          <div class="row">
+              <div class="col-12 col-lg-3">
+                  <hr>
+                  <div style="height: 15px;"></div>
+                  <ul>
+                      <li class="list-group-item" >FVC: {{this.datoRespiratorio ? this.datoRespiratorio.fvc : "último parametro  FVC /"}}L</li>
+                      <li class="list-group-item"  >FEV1: {{this.datoRespiratorio ? this.datoRespiratorio.fev1 : "último Parametro FEV1 /"}}L</li>
+                      <li class="list-group-item"  *ngIf="this.datoRespiratorio">Sat Basal: {{this.datoRespiratorio.saturacionBasal}}%</li>
+                      <li class="list-group-item"  *ngIf="this.datoRespiratorio">Capacidad Aeróbica: {{this.datoRespiratorio.capacidadAerobica}}</li>
+                      <li class="list-group-item">Último antibiótico: 22-04-21 (Septrim)</li>
+                  </ul>
+                  <div class="text-center">
+                     <button class="boton mt-2" styleClass="p-button-sm " type="button" pButton pRipple label="Añadir datos" (click)="mostrarDialogo()"></button>
+                  </div>
+              </div>
+              <div class="col-12 col-lg-9">
+                  <app-grafico></app-grafico>
+              </div>
+          </div>
+      </ng-template>
+  </p-card>
+</main>
+<p-dialog [visible]="mostrarFormulario" [closable]="false" [maximizable]="true"  header="Registro"  [style]="{width: '30vw', height:'auto'}" >
+  <ng-template pTemplate="body">
+    <form autocomplete="off"  (ngSubmit)="addRegistro()" [formGroup]="formRespiratorio">
+      <div class="d-grid gap-3">
+
+        <div class="field col-12 md:col-4">
+          <p-calendar inputId="basic" formControlName="fecha" appendTo="body" placeholder="Fecha"></p-calendar>
+        </div>
+        <input  pInputText type="text" formControlName="fvc" placeholder="Fvc" />
+        <input pInputText type="text" formControlName="fev1" placeholder="Fev1" />
+        <input pInputText type="text" formControlName="saturacion" placeholder="Saturacion Basal" />
+        <input pInputText type="text" formControlName="aerobica" placeholder="Capacidad Aerobica" />
+        <div d-flex >
+        <button pButton type="submit" label="Añadir" pRipple  class="boton mx-3"></button>
+        <button pButton type="button" label="Cerrar" pRipple  class="p-button-text" (click)="cerrarDialogo()"></button>
+       </div>
+      </div>
+    </form>
+  </ng-template>
+
+</p-dialog>
+<p-toast></p-toast>
+<p-confirmPopup></p-confirmPopup>

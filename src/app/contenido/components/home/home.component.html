@@ -1,0 +1,67 @@
+<app-menu></app-menu>
+
+ <div class="texto-pequeño">
+   <h1>MyFQController</h1>
+ </div>
+<div class="container overflow-auto">
+ 
+  <div class="row home-principal">
+    <div *ngIf="this.mensajes.length > 0" class="col-12">
+      <p-button label="Mensajes" icon="pi pi-users" styleClass="p-button-warning" badge="🔔"
+        badgeClass="p-badge-warning" (click)="mostrarMensajes()">
+      </p-button>
+    </div>
+
+    <div class="col-12 col-lg-4">
+
+      <app-tarjeta-respiratorio></app-tarjeta-respiratorio>
+    </div>
+    <div class="col-12 col-lg-4">
+      <app-tarjeta-actividad></app-tarjeta-actividad>
+    </div>
+    <div class="col-12 col-lg-4">
+      <app-tarjeta-resumen></app-tarjeta-resumen>
+    </div>
+
+  </div>
+</div>
+
+<p-dialog header="Mensaje" [closable]="false" [visible]="mostrarMensaje">
+  <ng-container *ngFor="let mensaje of mensajes">
+
+    <div class="form-check d-flex" *ngIf="mensaje.rol == 'medico'">
+      <div class="mx-5">
+        <p><span>{{mensaje.fecha}}</span>: <span>{{mensaje.mensaje}}</span> </p>
+      </div>
+      <div>
+        <input class="form-check-input" type="checkbox" value="" (change)="modificarVisto(mensaje)"
+          id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+
+          Visto
+        </label>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-envelope" (click)="abrirDialogMensaje()" label="Responder" styleClass="p-button-text">
+    </p-button>
+    <p-button icon="pi pi-check" (click)="cerrarDialog()" label="Ok" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>
+<p-dialog [visible]="abrirMensaje" [closable]="false" [maximizable]="true" header="Mensajes"
+  [style]="{width: '30vw', height:'auto'}">
+  <ng-template pTemplate="body">
+    <form autocomplete="off" (ngSubmit)="responderMensaje()" [formGroup]="formMensaje">
+      <div class="d-grid gap-3">
+        <textarea [rows]="5" [cols]="30" pInputTextarea formControlName="mensaje" placeholder="Mensaje"></textarea>
+        <div d-flex>
+          <button pButton type="submit" label="enviar" pRipple class="boton mx-3"></button>
+          <button pButton type="button" label="Cerrar" pRipple class="p-button-text"
+            (click)="cerrarDialogMensaje()"></button>
+        </div>
+      </div>
+    </form>
+  </ng-template>
+
+</p-dialog>
