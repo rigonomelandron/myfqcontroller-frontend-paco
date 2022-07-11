@@ -92,7 +92,7 @@ export class RegistroComponent implements OnInit {
     this._router.navigateByUrl('/auth/login');
   }
   onLogin(): void {
-   
+
     this.loginUsuario = new LoginUsuario(this.miFormulario.value.nombre, this.miFormulario.value.password);
     this._authService.login(this.loginUsuario).subscribe({
 
@@ -117,9 +117,9 @@ export class RegistroComponent implements OnInit {
     });
   }
   public registroPaciente(): void {
-    
+
     if (this.miFormulario.value.roles.value === 'ROLE_PACIENTE') {
-    
+
       if (this.usuarioNuevo && this.usuarioNuevo.id) {
         this.pacienteNuevo = {
           dni: this.miFormulario.value.id,
@@ -128,7 +128,6 @@ export class RegistroComponent implements OnInit {
           idUsuario: this.usuarioNuevo.id,
         }
       }
-    
       if (this.pacienteNuevo) {
         this._pacientesService
           .registroPacientes(this.pacienteNuevo)
@@ -144,7 +143,7 @@ export class RegistroComponent implements OnInit {
           });
       }
     }
-    
+
     if (this.miFormulario.value.roles.value === 'ROLE_MEDICO') {
       if (this.usuarioNuevo && this.usuarioNuevo.id) {
         this.medicoNuevo = {

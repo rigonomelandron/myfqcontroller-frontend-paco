@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {
-  background-image: url(assets/images/background1.svg);
+  background-image: url(assets/images/background5.svg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -108,7 +108,7 @@ body {
 .texto-principal {
   font-family: 'Yellowtail', cursive;
   font-size: 3rem;
-  color: rgb(9, 117, 190);
+  color: #1d736a;
   margin: 2rem;
   margin-left: 1rem;
 }

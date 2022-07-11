@@ -92,8 +92,7 @@
         </div>
         <textarea [rows]="5" [cols]="30" pInputTextarea formControlName="descripcion"
           placeholder="descripción"></textarea>
-
-
+          <label for="slider">Valoración:</label>
           <p-badge [value]="this.formEventos.value.importancia ? this.formEventos.value.importancia:'0'" size="xlarge" severity="success" *ngIf="this.formEventos.value.importancia <= 2"></p-badge>
           <p-badge [value]="this.formEventos.value.importancia" size="xlarge" severity="warning"
             *ngIf="this.formEventos.value.importancia > 2 && this.formEventos.value.importancia <=6 "></p-badge>

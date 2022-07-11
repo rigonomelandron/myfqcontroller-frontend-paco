@@ -80,13 +80,16 @@ export class DonutComponent implements OnInit {
         }
       ]
     };
+    this.chartOptions = this.getDarkTheme();
   }
   getLightTheme() {
     return {
       plugins: {
         legend: {
           labels: {
-            color: ' #1d736a'
+            color: ' #1d736a',
+
+
           }
         }
       }
@@ -98,7 +101,11 @@ export class DonutComponent implements OnInit {
       plugins: {
         legend: {
           labels: {
-            color: ' #1d736a'
+            color: ' #1d736a',
+            font:{
+              size: '15px',
+              weight: 'bold'
+            }
           }
         }
       }

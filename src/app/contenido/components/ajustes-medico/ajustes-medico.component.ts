@@ -51,7 +51,7 @@ export class AjustesMedicoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   
+
     this.obtenerMedico();
   }
 
@@ -98,7 +98,7 @@ export class AjustesMedicoComponent implements OnInit {
   public eliminarUsuario() {
     this._usuariosServices.deleteUsuario(this.medico.idUsuario).subscribe({
       next: (data) => {
-        //this._authService.logOut();
+      this._tokenService.logOut();
       },
       error: (err) => {
         console.log(err);
@@ -122,7 +122,7 @@ export class AjustesMedicoComponent implements OnInit {
         this._doctoresService.getDoctorByIdUsuario(this.usuario.id!).subscribe({
           next: (doctor) => {
             this.medico = doctor;
-            
+
           },
           error: (err:HttpErrorResponse) => {
             console.log(err);
@@ -133,6 +133,6 @@ export class AjustesMedicoComponent implements OnInit {
     });
   }
 
- 
+
 
 }

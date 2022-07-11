@@ -58,8 +58,8 @@ export class LoginComponent implements OnInit {
       },
       error: (err: HttpErrorResponse) => {
         this.isLoginFail = true;
-        this.errMsj = err.error.message;
-        this.toastr.error(this.errMsj, 'Login');
+        this.errMsj = err.message;
+        this.toastr.error("Usuario no registrado", 'Login');
 
       }
     });
